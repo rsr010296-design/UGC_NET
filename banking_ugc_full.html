@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banking &amp; Financial Institutions — UGC NET Commerce Chapter 7</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700&display=swap');
+:root{
+  --bg:#0f1117;--surface:#1a1d27;--surface2:#222636;--surface3:#2a2e42;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.14);
+  --text:#edf0fa;--muted:#8892b0;--hint:#555e7a;
+  --accent:#7c6fe0;--acl:#b0a6f5;--acbg:rgba(124,111,224,0.1);
+  --green:#3ecf8e;--greenbg:rgba(62,207,142,0.1);
+  --red:#f87171;--redbg:rgba(248,113,113,0.1);
+  --amber:#fbbf24;--amberbg:rgba(251,191,36,0.09);
+  --teal:#22d3ee;--tealbg:rgba(34,211,238,0.09);
+  --pink:#f472b6;--pinkbg:rgba(244,114,182,0.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:14px}
+button{font-family:'Inter',sans-serif}
+
+/* ── HEADER ── */
+.hdr{background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;position:sticky;top:0;z-index:200}
+.hdr-in{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-ic{width:32px;height:32px;background:var(--acbg);border:1px solid rgba(124,111,224,.35);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px}
+.brand-name{font-family:'Sora',sans-serif;font-size:14px;font-weight:700}
+.brand-tag{font-size:10px;color:var(--muted);margin-top:-2px}
+.tabs{display:flex;gap:3px;background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:3px}
+.tabs button{padding:6px 16px;border:none;border-radius:6px;background:none;color:var(--muted);font-size:12px;font-weight:500;cursor:pointer;transition:.18s;white-space:nowrap}
+.tabs button.on{background:var(--accent);color:#fff}
+.tabs button:hover:not(.on){color:var(--text)}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1140px;margin:0 auto;padding:28px 20px}
+.pane{display:none}.pane.on{display:block}
+
+/* ── HOME ── */
+.hero{text-align:center;padding:44px 0 36px}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--acl);background:var(--acbg);border:1px solid rgba(124,111,224,.3);border-radius:20px;padding:4px 14px;margin-bottom:16px}
+.hero h1{font-family:'Sora',sans-serif;font-size:36px;font-weight:700;line-height:1.2;margin-bottom:10px}
+.hero h1 em{font-style:normal;background:linear-gradient(120deg,var(--acl),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:14px;color:var(--muted);max-width:500px;margin:0 auto 24px}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.pill{background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:6px 14px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px}
+.pill strong{color:var(--text);font-weight:600}
+.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:680px;margin:32px auto 0}
+.home-card{background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:22px;transition:.2s}
+.home-card:hover{border-color:var(--border2)}
+.home-card .emoji{font-size:28px;margin-bottom:10px}
+.home-card h3{font-size:14px;font-weight:600;margin-bottom:6px}
+.home-card p{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:14px}
+.home-btn{width:100%;padding:9px;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;transition:.2s}
+.home-btn.a{background:var(--accent);color:#fff}
+.home-btn.b{background:linear-gradient(120deg,var(--accent),#5eead4);color:#fff}
+.home-btn:hover{opacity:.88}
+.unit-list{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;max-width:680px;margin:20px auto 0}
+.unit-list-title{font-size:10px;font-weight:600;color:var(--acl);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.unit-list ul{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:7px;list-style:none}
+.unit-list li{font-size:12px;color:var(--muted);background:var(--surface2);border-radius:6px;padding:6px 10px}
+
+/* ── CONCEPTS ── */
+.unit-sep{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--acl);margin:28px 0 12px;display:flex;align-items:center;gap:10px}
+.unit-sep::after{content:'';flex:1;height:1px;background:var(--border)}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.cc{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:18px;cursor:pointer;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
+.cc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:.2s}
+.cc:hover,.cc.open{border-color:rgba(124,111,224,.35)}
+.cc:hover::before,.cc.open::before{opacity:1}
+.cc.purple::before{background:linear-gradient(90deg,var(--accent),var(--acl))}
+.cc.teal::before{background:linear-gradient(90deg,var(--teal),#a5f3fc)}
+.cc.green::before{background:linear-gradient(90deg,var(--green),#86efac)}
+.cc.amber::before{background:linear-gradient(90deg,var(--amber),#fde68a)}
+.cc.red::before{background:linear-gradient(90deg,var(--red),#fca5a5)}
+.cc.pink::before{background:linear-gradient(90deg,var(--pink),#fbcfe8)}
+.cc:hover{transform:translateY(-2px)}
+.cc-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:0}
+.cc-ic{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.cc.purple .cc-ic{background:rgba(124,111,224,.15)}
+.cc.teal .cc-ic{background:var(--tealbg)}
+.cc.green .cc-ic{background:var(--greenbg)}
+.cc.amber .cc-ic{background:var(--amberbg)}
+.cc.red .cc-ic{background:var(--redbg)}
+.cc.pink .cc-ic{background:var(--pinkbg)}
+.cc-ti{font-size:13px;font-weight:600;color:var(--text);line-height:1.3;margin-top:2px}
+.cc-su{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4}
+.cc-arr{font-size:17px;color:var(--hint);transition:transform .3s;flex-shrink:0;margin-top:3px;line-height:1}
+.cc.open .cc-arr{transform:rotate(180deg)}
+.cc-body{overflow:hidden;max-height:0;opacity:0;transition:max-height .4s ease,opacity .3s}
+.cc.open .cc-body{max-height:1200px;opacity:1}
+.cc-inner{padding-top:13px;border-top:1px solid var(--border);margin-top:13px}
+/* FACT LINES */
+.f{display:flex;gap:8px;font-size:12.5px;color:#c0c8e0;line-height:1.55;margin-bottom:7px;align-items:flex-start}
+.f::before{content:'›';color:var(--acl);font-weight:700;font-size:14px;flex-shrink:0;line-height:1.35}
+.f strong{color:var(--text);font-weight:600}
+/* SECTION DIVIDER inside card */
+.sec{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin:10px 0 6px}
+.sec.t{color:var(--teal)}.sec.a{color:var(--amber)}.sec.g{color:var(--green)}
+/* TAGS */
+.tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:4px}
+.tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px}
+.tag.hot{background:rgba(251,191,36,.12);color:var(--amber);border:1px solid rgba(251,191,36,.22)}
+.tag.mt{background:var(--tealbg);color:var(--teal);border:1px solid rgba(34,211,238,.22)}
+.tag.ar{background:var(--greenbg);color:var(--green);border:1px solid rgba(62,207,142,.22)}
+.tag.ch{background:var(--pinkbg);color:var(--pink);border:1px solid rgba(244,114,182,.22)}
+
+/* ── QUIZ ── */
+.qbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{padding:5px 13px;border:1px solid var(--border);border-radius:20px;background:none;color:var(--muted);font-size:11px;font-weight:500;cursor:pointer;transition:.16s}
+.chip:hover{border-color:var(--border2);color:var(--text)}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.qmeta{display:flex;align-items:center;gap:12px}
+.sc{font-size:12px;color:var(--muted)}.sc strong{font-size:20px;font-weight:700;color:var(--text)}
+.rst{padding:6px 14px;border:1px solid var(--border2);border-radius:7px;background:none;color:var(--muted);font-size:11px;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:5px}
+.rst:hover{border-color:var(--accent);color:var(--acl)}
+.prog{height:3px;background:var(--surface3);border-radius:3px;margin-bottom:24px;overflow:hidden}
+.prog-f{height:100%;background:linear-gradient(90deg,var(--accent),var(--teal));border-radius:3px;transition:width .5s ease;width:0}
+.qc{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:14px;animation:up .28s ease}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.qt{display:flex;align-items:center;gap:7px;margin-bottom:12px;flex-wrap:wrap}
+.qyb{font-size:10px;font-weight:600;background:var(--acbg);border:1px solid rgba(124,111,224,.3);color:var(--acl);padding:2px 8px;border-radius:5px;letter-spacing:.04em}
+.qtb{font-size:10px;font-weight:600;padding:2px 8px;border-radius:5px;letter-spacing:.04em;border:1px solid}
+.qtb.rbi{background:var(--tealbg);color:var(--teal);border-color:rgba(34,211,238,.25)}
+.qtb.types{background:var(--greenbg);color:var(--green);border-color:rgba(62,207,142,.25)}
+.qtb.markets{background:var(--amberbg);color:var(--amber);border-color:rgba(251,191,36,.25)}
+.qtb.dfi{background:var(--acbg);color:var(--acl);border-color:rgba(124,111,224,.3)}
+.qtb.digital{background:var(--redbg);color:var(--red);border-color:rgba(248,113,113,.25)}
+.qtb.insurance{background:var(--pinkbg);color:var(--pink);border-color:rgba(244,114,182,.25)}
+.qtb.reforms{background:rgba(139,146,176,.1);color:#a0a8c0;border-color:rgba(139,146,176,.25)}
+.qno{margin-left:auto;font-size:11px;color:var(--hint)}
+.qtext{font-size:14px;font-weight:500;color:var(--text);line-height:1.55;margin-bottom:16px}
+.opts{display:flex;flex-direction:column;gap:7px}
+.ob{display:flex;align-items:flex-start;gap:11px;padding:10px 14px;border:1px solid var(--border);border-radius:9px;background:var(--surface2);color:var(--text);font-size:12.5px;text-align:left;cursor:pointer;transition:.17s;line-height:1.5;width:100%}
+.ob:hover:not(:disabled){background:var(--surface3);border-color:var(--border2)}
+.ob:disabled{cursor:default}
+.ob.correct{background:var(--greenbg);border-color:rgba(62,207,142,.5);color:var(--green)}
+.ob.wrong{background:var(--redbg);border-color:rgba(248,113,113,.5);color:var(--red)}
+.ob.reveal{background:rgba(34,211,238,.07);border-color:rgba(34,211,238,.4);color:var(--teal)}
+.ol{font-weight:700;font-size:10px;min-width:18px;height:18px;border-radius:4px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.ob.correct .ol{background:rgba(62,207,142,.2)}.ob.wrong .ol{background:rgba(248,113,113,.2)}.ob.reveal .ol{background:rgba(34,211,238,.18)}
+.oi{margin-left:auto;flex-shrink:0;font-size:14px;margin-top:1px}
+.exp{margin-top:12px;padding:13px 15px;background:rgba(124,111,224,.08);border:1px solid rgba(124,111,224,.2);border-radius:9px;font-size:12.5px;color:#bcc2dc;line-height:1.65;display:flex;gap:9px;animation:fi .3s ease}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.ei{font-size:15px;flex-shrink:0;margin-top:1px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .hero h1{font-size:24px}
+  .home-grid{grid-template-columns:1fr}
+  .hdr-in{flex-direction:column;align-items:flex-start}
+}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--surface3);border-radius:3px}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="brand">
+      <div class="brand-ic">🏦</div>
+      <div><div class="brand-name">BankPrep</div><div class="brand-tag">UGC NET Commerce · Unit 7</div></div>
+    </div>
+    <nav class="tabs">
+      <button class="on" onclick="go('home',this)">Home</button>
+      <button onclick="go('concepts',this)">Concepts</button>
+      <button onclick="go('quiz',this)">Practice Quiz</button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ══ HOME ══ -->
+<div id="p-home" class="pane on">
+  <div class="hero">
+    <div class="eyebrow">📚 UGC NET Commerce · Dec 2014 – Jan 2026</div>
+    <h1>Chapter 7<br><em>Banking &amp; Financial Institutions</em></h1>
+    <p>Complete study resource — concept cards with key facts and previous year exam questions from 2014 to 2026 with explanations.</p>
+    <div class="pills">
+      <div class="pill"><strong>10</strong> Units covered</div>
+      <div class="pill"><strong>12</strong> Concept cards</div>
+      <div class="pill"><strong>105</strong> PYQ questions</div>
+      <div class="pill"><strong>2014 – 2026</strong> Years</div>
+    </div>
+  </div>
+  <div class="home-grid">
+    <div class="home-card">
+      <div class="emoji">📖</div>
+      <h3>Concepts Overview</h3>
+      <p>12 expandable cards covering all units — key facts, important dates, committees, and exam-frequency tags.</p>
+      <button class="home-btn a" onclick="go('concepts',document.querySelectorAll('.tabs button')[1])">Open Concepts →</button>
+    </div>
+    <div class="home-card">
+      <div class="emoji">🎯</div>
+      <h3>Practice Questions</h3>
+      <p>105 real PYQs from 2014 to 2026. Filter by topic, click an option to reveal the correct answer with a full explanation.</p>
+      <button class="home-btn b" onclick="go('quiz',document.querySelectorAll('.tabs button')[2])">Start Quiz →</button>
+    </div>
+  </div>
+  <div class="unit-list">
+    <div class="unit-list-title">Units at a glance</div>
+    <ul>
+      <li>7.1 · Indian Financial System</li>
+      <li>7.2 · Types of Banks</li>
+      <li>7.3 · Reserve Bank of India</li>
+      <li>7.4 · Basel Norms &amp; NPA</li>
+      <li>7.5 · Financial Markets</li>
+      <li>7.6 · DFIs, NBFCs &amp; Mutual Funds</li>
+      <li>7.7 · Financial Sector Reforms</li>
+      <li>7.8 · Digital Banking</li>
+      <li>7.9 · Insurance &amp; IRDA</li>
+      <li>7.10 · General Questions</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══ CONCEPTS ══ -->
+<div id="p-concepts" class="pane">
+
+  <div class="unit-sep">Unit 7.1 — Indian Financial System &amp; History</div>
+  <div class="cg">
+
+    <div class="cc purple" onclick="flip(this)">
+      <div class="cc-hd">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="cc-ic">🏛️</div>
+          <div><div class="cc-ti">History of Indian Banking</div><div class="cc-su">Key milestones and nationalization</div></div>
+        </div>
+        <div class="cc-arr">⌄</div>
+      </div>
+      <div class="cc-body"><div class="cc-inner">
+        <div class="f">RBI nationalized in <strong>1949</strong></div>
+        <div class="f">Imperial Bank nationalized in <strong>1955</strong> and renamed State Bank of India (SBI)</div>
+        <div class="f">14 commercial banks nationalized in <strong>1969</strong> — this was the first phase of bank nationalization</div>
+        <div class="f">IDBI (Industrial Development Bank of India) established in <strong>1964</strong></div>
+        <div class="f">6 more banks nationalized in <strong>1980</strong> — second phase of bank nationalization</div>
+        <div class="f">Bank of Calcutta was renamed Bank of Bengal in <strong>1809</strong>, not 1921 — a commonly tested wrong option</div>
+        <div class="f">The presidency banks (Bank of Calcutta, Bank of Bombay, Bank of Madras) had acted as quasi-central banks for many years</div>
+        <div class="f">General Bank of India was an unsuccessful bank dissolved in 1791</div>
+        <div class="tags"><span class="tag hot">🔥 Freq. asked</span><span class="tag mt">Match-list</span></div>
+      </div></div>
+    </div>
+
+    <div class="cc teal" onclick="flip(this)">
+      <div class="cc-hd">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="cc-ic">📋</div>
+          <div><div class="cc-ti">Finance Commissions</div><div class="cc-su">Key commissions, years, and chairmen</div></div>
+        </div>
+        <div class="cc-arr">⌄</div>
+      </div>
+      <div class="cc-body"><div class="cc-inner">
+        <div class="f">1st Finance Commission — constituted 1951, report 1953, chairman <strong>K.C. Neogi</strong></div>
+        <div class="f">7th Finance Commission — constituted 1977, report 1978, chairman <strong>J.M. Shelat</strong></div>
+        <div class="f">11th Finance Commission — constituted 1998, report 2000, chairman <strong>A.M. Khusro</strong></div>
+        <div class="f">13th Finance Commission — constituted 2007, report 2009, chairman <strong>V.L. Kelkar</strong></div>
+        <div class="tags"><span class="tag hot">🔥 Freq. asked</span><span class="tag mt">Match-list</span></div>
+      </div></div>
+    </div>
+
+    <div class="cc green" onclick="flip(this)">
+      <div class="cc-hd">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="cc-ic">🔄</div>
+          <div><div class="cc-ti">Banking Sector Reform Committees</div><div class="cc-su">Committee names, years, and focus areas</div></div>
+        </div>
+        <div class="cc-arr">⌄</div>
+      </div>
+      <div class="cc-body"><div class="cc-inner">
+        <div class="f"><strong>Narasimham Committee I (1991)</strong> — First generation banking reforms; focused on liberalizing and improving efficiency</div>
+        <div class="f"><strong>Narasimham Committee II (1992)</strong> — Studied financial institutions, CAR (Capital Adequacy Ratio), optimal bank size, and ways to strengthen them</div>
+        <div class="f"><strong>Malhotra Committee (1993)</strong> — Comprehensive reform of the insurance sector; recommended opening to private players</div>
+        <div class="f"><strong>Rashid Jilani Committee (1995)</strong> — Studied operational efficiency of the banking system</div>
+        <div class="f"><strong>Saraf Committee (1997)</strong> — Banking technology and electronic funds transfer</div>
+        <div class="f"><strong>Padmanabhan Committee (1999)</strong> — Risk management systems in banks</div>
+        <div class="f"><strong>Verma Committee (2001)</strong> — Studied weak banks and suggested measures for their revival</div>
+        <div class="f"><strong>Rangarajan Committee on Disinvestment in PSUs</strong> — constituted 1991</div>
+        <div class="f"><strong>Competition Act</strong> — enacted 2002</div>
+        <div class="f"><strong>Adrian Cadbury Committee</strong> — corporate governance, 1992</div>
+        <div class="tags"><span class="tag hot">🔥 Freq. asked</span><span class="tag ar">Assertion-Reason</span><span class="tag mt">Match-list</span></div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <div class="unit-sep">Unit 7.2 — Types of Banks</div>
+  <div class="cg">
+
+    <div class="cc amber" onclick="flip(this)">
+      <div class="cc-hd">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="cc-ic">🏦</div>
+          <div><div class="cc-ti">Bank Categories and Structures</div><div class="cc-su">Cooperative, RRBs, Offshore, Foreign, SBI</div></div>
+        </div>
+        <div class="cc-arr">⌄</div>
+      </div>
+      <div class="cc-body"><div class="cc-inner">
+        <div class="sec t">Cooperative Banks</div>
+        <div class="f">Three-tier structure: Primary Agricultural Credit Society → District Cooperative Bank → <strong>State Cooperative Bank (apex)</strong></div>
+        <div class="f">Apex institution under cooperative bank structure is the <strong>State Cooperative Bank</strong> — commonly tested</div>
+        <div class="sec t">Regional Rural Banks (RRBs)</div>
+        <div class="f">Capital structure: <strong>50% Central Government + 15% State Government + 35% Sponsoring Bank</strong></div>
+        <div class="f">Governed by the <strong>Regional Rural Banks Act, 1976</strong></div>
+        <div class="f"><strong>Chalapathi Rao Committee (2003)</strong> was set up for restructuring of RRBs</div>
+        <div class="f">NABARD is the regulatory authority for all RRBs in India</div>
+        <div class="sec t">State Bank of India</div>
+        <div class="f">SBI came into existence in <strong>1955</strong> when the government took over the Imperial Bank of India and renamed it</div>
+        <div class="f">Imperial Bank of India was founded in <strong>1806</strong> as Bank of Calcutta</div>
+        <div class="sec t">Offshore and Foreign Banks</div>
+        <div class="f"><strong>Offshore Banks</strong> — located in low-tax jurisdictions, serve non-residents, offer higher privacy and lower tax burdens</div>
+        <div class="f"><strong>Community Bank</strong> — locally operated, empowers employees to make local decisions for customers</div>
+        <div class="f"><strong>Ethical Bank</strong> — prioritizes transparency of all its operations</div>
+        <div class="tags"><span class="tag hot">🔥 Freq. asked</span><span class="tag mt">Match-list</span><span class="tag ch">Chronology</span></div>
+      </div></div>
+    </div>
+
+    <div class="cc teal" onclick="flip(this)">
+      <div class="cc-hd">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="cc-ic">⇄</div>
+          <div><div class="cc-ti">Banking Functions and Types</div><div class="cc-su">Relationship, Merchant, Indigenous, Development, Nostro/Vostro</div></div>
+        </div>
+        <div class="cc-arr">⌄</div>
+      </div>
+      <div class="cc-body"><div class="cc-inner">
+        <div class="sec t">Types of Banking</div>
+        <div class="f"><strong>Relationship Banking</strong> — Creating, maintaining, and enhancing strong relationships with customers</div>
+        <div class="f"><strong>Merchant Banking</strong> — Widening the entrepreneurial base and assisting in a rapid rate of industrial growth</div>
+        <div class="f"><strong>Indigenous Banking</strong> — Dealing in hundis and acceptance of deposits</div>
+        <div class="f"><strong>Development Banking</strong> — Engaged in the business of capital issue management</div>
+        <div class="sec t">Bank Account Terminology</div>
+        <div class="f"><strong>Nostro Account</strong> — An Indian bank's account held with a foreign bank (e.g., Indian bank's Swiss Franc account with a Swiss bank)</div>
+        <div class="f"><strong>Vostro Account</strong> — A foreign bank's account held with a local Indian bank</div>
+        <div class="f"><strong>Bid</strong> — The price at which the dealer is willing to BUY another currency</div>
+        <div class="f"><strong>Offer</strong> — The price at which the dealer is willing to SELL another currency</div>
+        <div class="sec t">Income Types</div>
+        <div class="f"><strong>Fund-based income</strong> — Earnings from interest on deposits, loans, and investments (primary banking activities)</div>
+        <div class="f"><strong>Fee-based income</strong> — Earnings from services like advisory, brokerage, and custodial services</div>
+        <div class="f">Interest earned against custodial deposit = <strong>fund-based income</strong></div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <div class="unit-sep">Unit 7.3 — Reserve Bank of India</div>
+  <div class="cg">
+
+    <div class="cc purple" onclick="flip(this)">
+      <div class="cc-hd">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="cc-ic">🛡️</div>
+          <div><div class="cc-ti">RBI Functions and Key Facts</div><div class="cc-su">Roles, subsidiaries, and history</div></div>
+        </div>
+        <div class="cc-arr">⌄</div>
+      </div>
+      <div class="cc-body"><div class="cc-inner">
+        <div class="sec t">Functions under RBI Act 1934</div>
+        <div class="f">Three functions: <strong>Banking, Supervisory, and Promotional</strong> — Advisory is NOT a function of the RBI</div>
+        <div class="f">Bank of Issue — has the sole right to issue currency notes</div>
+        <div class="f">Banker's Bank — provides banking services to all commercial banks</div>
+        <div class="f">Lender of Last Resort — provides emergency credit to banks</div>
+        <div class="f">Custodian of foreign exchange reserves and controller of credit</div>
+        <div class="f">Manages public debt and issues treasury bills on behalf of Central and State Governments</div>
+        <div class="f">Executes FEMA (Foreign Exchange Management Act) provisions — regulatory and administrative authority</div>
+        <div class="f">Regulating fiscal policy is NOT a function of RBI — that is the government's role</div>
+        <div class="f">RBI commenced operations on <strong>April 1, 1935</strong></div>
+        <div class="f">Banking Ombudsman Scheme was introduced in <strong>1995</strong> for customer grievance resolution</div>
+        <div class="f">RBI worked as Central Bank of Burma till April 1947</div>
+        <div class="f">RBI worked as Central Bank of Pakistan till June 1948</div>
+        <div class="sec t">RBI Subsidiaries (fully owned)</div>
+        <div class="f"><strong>NHB (1987)</strong> — National Housing Bank; promotes housing finance institutions (transferred to government in 2019)</div>
+        <div class="f"><strong>DICGC</strong> — Deposit Insurance and Credit Guarantee Corporation of India</div>
+        <div class="f"><strong>BRBNMPL</strong> — Bharatiya Reserve Bank Note Mudran Private Limited; responsible for printing Indian currency notes</div>
+        <div class="f"><strong>IFTAS</strong> — Indian Financial Technology and Allied Services; provides technology services to the banking sector</div>
+        <div class="f">IIBM, NIBM, and IIBF are NOT subsidiaries of RBI</div>
+        <div class="tags"><span class="tag hot">🔥 Very Freq.</span><span class="tag ar">Assertion-Reason</span></div>
+      </div></div>
+    </div>
+
+    <div class="cc green" onclick="flip(this)">
+      <div class="cc-hd">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="cc-ic">⚙️</div>
+          <div><div class="cc-ti">Monetary Policy Tools</div><div class="cc-su">CRR, SLR, Repo, OMO — quantitative and qualitative</div></div>
+        </div>
+        <div class="cc-arr">⌄</div>
+      </div>
+      <div class="cc-body"><div class="cc-inner">
+        <div class="sec t">Quantitative (General) Methods</div>
+        <div class="f"><strong>CRR (Cash Reserve Ratio)</strong> — Percentage of a bank's total deposits that must be kept with RBI in the form of cash. When CRR is reduced, lendable resources INCREASE.</div>
+        <div class="f"><strong>SLR (Statutory Liquidity Ratio)</strong> — Percentage of net demand and time liabilities that banks must maintain in liquid assets like cash, gold, and government-approved securities</div>
+        <div class="f"><strong>Repo Rate</strong> — The rate at which RBI lends money to commercial banks. Higher repo rate = costlier borrowing = less credit creation.</div>
+        <div class="f"><strong>Reverse Repo Rate</strong> — The rate at which RBI borrows money from commercial banks. Used to absorb excess liquidity from the system.</div>
+        <div class="f"><strong>OMO (Open Market Operations)</strong> — RBI buys and sells government securities in the open market to regulate money supply</div>
+        <div class="f"><strong>Bank Rate</strong> — Long-term interest rate at which RBI lends to commercial banks; affects the overall interest rate structure</div>
+        <div class="f"><strong>MSS (Market Stabilization Scheme)</strong> — Used to absorb surplus liquidity of enduring nature arising from capital flows; funds held in MSS account with RBI are NOT for normal government expenditure</div>
+        <div class="sec a">Qualitative (Selective) Methods</div>
+        <div class="f"><strong>Credit Rationing</strong> — RBI sets limits on the amount of credit banks can provide; less commonly used in modern economies</div>
+        <div class="f"><strong>Margin Requirements</strong> — Minimum margins on loans against securities; qualitative method</div>
+        <div class="f">Important: CRR, SLR, Bank Rate, OMO = quantitative; Credit Rationing, Margin Requirements = qualitative</div>
+        <div class="sec g">Key Rates Explained Simply</div>
+        <div class="f">A rise in SLR directly reduces credit creating capacity of banks (banks must hold more liquid assets)</div>
+        <div class="f">Changes in SLR, unlike CRR, do NOT produce a direct and immediate effect on money supply</div>
+        <div class="tags"><span class="tag hot">🔥 Very Freq.</span><span class="tag ar">Assertion-Reason</span></div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <div class="unit-sep">Unit 7.4 — Basel Norms, Risk Management and NPA</div>
+  <div class="cg">
+
+    <div class="cc purple" onclick="flip(this)">
+      <div class="cc-hd">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="cc-ic">🔢</div>
+          <div><div class="cc-ti">Basel Framework — Three Pillars</div><div class="cc-su">BCBS, CAR, RWA, capital requirements</div></div>
+        </div>
+        <div class="cc-arr">⌄</div>
+      </div>
+      <div class="cc-body"><div class="cc-inner">
+        <div class="f">BCBS (Basel Committee on Banking Supervision) was established in <strong>1974</strong> by the central bank governors of <strong>ten countries (G10)</strong>; it now has 45 member countries</div>
+        <div class="f">Primary objective of BCBS is to standardize and supervise banking regulations to enhance financial stability globally</div>
+        <div class="f"><strong>Pillar I</strong> — Minimum regulatory capital requirements based on Risk Weighted Assets (RWAs)</div>
+        <div class="f"><strong>Pillar II</strong> — Supervisory review process of capital adequacy</div>
+        <div class="f"><strong>Pillar III</strong> — Market discipline through transparency and disclosure requirements</div>
+        <div class="f"><strong>RWA (Risk Weighted Assets)</strong> — A measure to determine the minimum capital that must be held by banks; assets are weighted by their risk level</div>
+        <div class="f">Capital Adequacy Ratio (CAR) for Indian Public Sector Banks = <strong>12%</strong> (as set by RBI under Basel III)</div>
+        <div class="f">Basel III came into effect in India starting 2013; general minimum CAR is 9%</div>
+        <div class="f"><strong>CCB (Countercyclical Capital Buffer)</strong> — restricts participation in system-wide credit booms; can be reduced during economic stress</div>
+        <div class="f">Tier I capital includes: paid-up capital of equity shares, statutory reserves, perpetual non-cumulative preference shares (PNCPS), innovative perpetual debt instruments (IPDI), and capital reserves from sale of assets</div>
+        <div class="f">Tier II capital includes: innovative perpetual debt instruments counted above limits, upper Tier-II instruments, lower Tier-II instruments</div>
+        <div class="tags"><span class="tag hot">🔥 Freq. asked</span><span class="tag mt">Match-list</span><span class="tag ar">Statement-based</span></div>
+      </div></div>
+    </div>
+
+    <div class="cc red" onclick="flip(this)">
+      <div class="cc-hd">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="cc-ic">⚠️</div>
+          <div><div class="cc-ti">Non-Performing Assets (NPA)</div><div class="cc-su">Classification, management, and related concepts</div></div>
+        </div>
+        <div class="cc-arr">⌄</div>
+      </div>
+      <div class="cc-body"><div class="cc-inner">
+        <div class="f">An NPA is a loan or advance for which the borrower has NOT made the required payments (principal or interest) for a period of <strong>more than 90 days</strong></div>
+        <div class="f"><strong>Sub-standard assets</strong> — have been NPA for less than 12 months; higher risk of default</div>
+        <div class="f"><strong>Doubtful assets</strong> — have been NPA for more than 12 months; even higher risk</div>
+        <div class="f"><strong>Loss assets</strong> — identified as uncollectible by internal/external auditors; of little value to the bank</div>
+        <div class="f"><strong>Regulatory forbearance</strong> — banks delay or avoid classifying loans as NPAs; is an emergency medicine, not a staple diet (as stated in the Economic Survey)</div>
+        <div class="f">Banks classify loans as NPAs based on regulatory criteria (non-payment of interest/principal), NOT solely by auditors' discretion</div>
+        <div class="f">Capital adequacy norms help strengthen banks' capital base but can restrict sanctioning of more loans — a common Statement II trap in exams</div>
+        <div class="f">SARFAESI Act 2002 — enables Asset Reconstruction Companies to manage NPA recovery</div>
+        <div class="tags"><span class="tag hot">🔥 Freq. asked</span><span class="tag ar">Assertion-Reason</span></div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <div class="unit-sep">Unit 7.5 — Financial Markets</div>
+  <div class="cg">
+
+    <div class="cc amber" onclick="flip(this)">
+      <div class="cc-hd">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="cc-ic">📊</div>
+          <div><div class="cc-ti">Money Market Instruments</div><div class="cc-su">Call money, CP, T-Bills, CDs and development</div></div>
+        </div>
+        <div class="cc-arr">⌄</div>
+      </div>
+      <div class="cc-body"><div class="cc-inner">
+        <div class="f"><strong>Call Money</strong> — Money borrowed or lent for a single day or overnight between banks; the lending bank earns interest at the call money rate. This is a money market instrument.</div>
+        <div class="f"><strong>Commercial Paper (CP)</strong> — An unsecured, short-term promissory note issued by creditworthy corporates, primary dealers, and all-India financial institutions at a discount; maturity 15 days to 1 year in India</div>
+        <div class="f"><strong>Treasury Bills (T-Bills)</strong> — Short-term government borrowing instruments issued at a discount; ordinary T-Bills are marketable and can be traded</div>
+        <div class="f"><strong>Ad-hoc Treasury Bills</strong> — Issued only in favour of the Reserve Bank of India to create a temporary means of financing; these are NOT marketable</div>
+        <div class="f"><strong>Interbank Call Market</strong> — short-term maturity; <strong>Commercial Bills</strong> — money market instrument; <strong>Commercial Paper</strong> — promissory note; <strong>Treasury Bills</strong> — government papers</div>
+        <div class="f">Development of money market in India sequence: <strong>IRSS (1999) → LAF (2000) → Commercial Paper (1990) → WMA linked to bank rate (1997) → RTGS (2004)</strong></div>
+        <div class="f"><strong>Spread</strong> in banking is defined as a function of Net Interest Income (NII) — the difference between interest generated by lending and interest paid to depositors</div>
+        <div class="f">Industrial Securities Market is NOT a money market instrument — it deals with long-term securities</div>
+        <div class="tags"><span class="tag hot">🔥 Freq. asked</span><span class="tag mt">Match-list</span></div>
+      </div></div>
+    </div>
+
+    <div class="cc green" onclick="flip(this)">
+      <div class="cc-hd">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="cc-ic">📈</div>
+          <div><div class="cc-ti">Capital Market, SEBI, and Stock Exchanges</div><div class="cc-su">Indices, options, exchanges, and investor protection</div></div>
+        </div>
+        <div class="cc-arr">⌄</div>
+      </div>
+      <div class="cc-body"><div class="cc-inner">
+        <div class="sec t">Stock Exchanges in India and World</div>
+        <div class="f"><strong>Bombay Stock Exchange (BSE)</strong> — oldest stock exchange in India; established <strong>1875</strong></div>
+        <div class="f"><strong>National Stock Exchange (NSE)</strong> — established <strong>1992</strong></div>
+        <div class="f"><strong>MCX Stock Exchange (MCX-SX)</strong> — established 2008</div>
+        <div class="f"><strong>ISEI (Interconnected Stock Exchange of India)</strong> — established 2000</div>
+        <div class="f"><strong>NASDAQ</strong> — world's first electronic stock market, established <strong>1971</strong> by the National Association of Securities Dealers (NASD)</div>
+        <div class="sec t">Indices</div>
+        <div class="f">NIFTY and SENSEX are calculated on <strong>free-float market capitalisation</strong> — considers only shares available for trading, excluding promoter/government holdings</div>
+        <div class="f">SENSEX consists of 30 well-established companies listed on BSE</div>
+        <div class="sec t">SEBI (Securities and Exchange Board of India)</div>
+        <div class="f">SEBI was established in 1992 under the SEBI Act 1992 (NOT the Securities Contract and Regulation Act 1956)</div>
+        <div class="f">SEBI protects investors' interests and promotes and regulates the securities market</div>
+        <div class="f">SEBI is NOT constituted from directors of stock exchanges</div>
+        <div class="f"><strong>N.K. Mitra Committee</strong> — formed to address investor protection issues in India; submitted report April 2001</div>
+        <div class="sec t">Derivatives and Options</div>
+        <div class="f"><strong>American-style options</strong> — can be exercised at any time BEFORE the expiry date (more flexibility for holders)</div>
+        <div class="f"><strong>European-style options</strong> — can be exercised ONLY on the expiry date</div>
+        <div class="f"><strong>Put option</strong> — gives holder the right to SELL a fixed amount of stock at a stated price on or before a predetermined date</div>
+        <div class="f"><strong>Call option</strong> — gives holder the right to BUY (purchase) a fixed amount of stock at a stated price on or before a predetermined date</div>
+        <div class="f">Insider trading is ILLEGAL in the capital market as it involves trading based on non-public material information</div>
+        <div class="tags"><span class="tag hot">🔥 Freq. asked</span><span class="tag ar">Assertion-Reason</span><span class="tag mt">Match-list</span></div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <div class="unit-sep">Unit 7.6 — Financial Institutions: DFIs, NBFCs, Mutual Funds</div>
+  <div class="cg">
+
+    <div class="cc purple" onclick="flip(this)">
+      <div class="cc-hd">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="cc-ic">🏗️</div>
+          <div><div class="cc-ti">Development Finance Institutions (DFIs)</div><div class="cc-su">IFCI, IDBI, NABARD, SIDBI, NHB, UTI, EXIM Bank</div></div>
+        </div>
+        <div class="cc-arr">⌄</div>
+      </div>
+      <div class="cc-body"><div class="cc-inner">
+        <div class="sec t">Chronological Order of Establishment (Old → New)</div>
+        <div class="f"><strong>IFCI — 1948</strong> — Industrial Finance Corporation of India; IFCI Act amended in 1986 to extend to health sector</div>
+        <div class="f"><strong>IDBI — 1964</strong> — Industrial Development Bank of India; set up as a wholly-owned subsidiary of RBI (later made autonomous)</div>
+        <div class="f"><strong>UTI — 1964</strong> — Unit Trust of India; mutual fund activities; NOT a development banking institution</div>
+        <div class="f"><strong>NABARD — July 1982</strong> — National Bank for Agriculture and Rural Development; apex body for RRBs; NIEAF, BIRD, RIDF, SHPI are all associated with NABARD</div>
+        <div class="f"><strong>EXIM Bank — January 1982</strong> — Export-Import Bank of India; facilitates trade financing; NOT a traditional development bank</div>
+        <div class="f"><strong>NHB — 1988</strong> — National Housing Bank; apex institution for housing finance; was RBI subsidiary until 2019</div>
+        <div class="f"><strong>SIDBI — 1990</strong> — Small Industries Development Bank of India; set up as subsidiary of IDBI to take over small business financing functions</div>
+        <div class="f">ICICI — established 1955; was a development financial institution but transformed into a commercial bank</div>
+        <div class="sec t">International Institutions</div>
+        <div class="f"><strong>IBRD (World Bank)</strong> — established 1945</div>
+        <div class="f"><strong>IFC (International Finance Corporation)</strong> — established 1956</div>
+        <div class="f"><strong>ADB (Asian Development Bank)</strong> — established 1966</div>
+        <div class="f">ECGC (Export Credit Guarantee Corporation of India) — established 1957</div>
+        <div class="tags"><span class="tag hot">🔥 Freq. asked</span><span class="tag ch">Chronology</span><span class="tag mt">Match-list</span></div>
+      </div></div>
+    </div>
+
+    <div class="cc teal" onclick="flip(this)">
+      <div class="cc-hd">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="cc-ic">💼</div>
+          <div><div class="cc-ti">Mutual Funds and NBFCs</div><div class="cc-su">Structure, roles, regulation, and types</div></div>
+        </div>
+        <div class="cc-arr">⌄</div>
+      </div>
+      <div class="cc-body"><div class="cc-inner">
+        <div class="sec t">Mutual Fund Structure</div>
+        <div class="f">A mutual fund is set up in the form of a trust with four parties: <strong>Sponsor → Trustee → AMC → Custodian</strong></div>
+        <div class="f"><strong>Sponsor</strong> — is like the promoter of a company; sets up the fund, provides initial capital, and ensures regulatory compliance during setup</div>
+        <div class="f"><strong>Trustee</strong> — holds property for benefit of unit-holders; acts as watchdog to ensure mutual fund operates in accordance with SEBI regulations</div>
+        <div class="f"><strong>AMC (Asset Management Company)</strong> — manages the funds by investing in various types of securities in a diversified portfolio</div>
+        <div class="f"><strong>Custodian</strong> — holds securities in electronic form and facilitates transfer and settlement; is a SEPARATE entity from the mutual fund trust</div>
+        <div class="f">Mutual funds in India are regulated by <strong>SEBI</strong> (not AMFI; AMFI is a self-regulatory body)</div>
+        <div class="f"><strong>Entry Load</strong> — charge collected from investors when a mutual fund scheme SELLS its units to investors (i.e., when investor buys)</div>
+        <div class="f"><strong>Exit Load</strong> — charge collected when an investor SELLS or redeems their mutual fund units</div>
+        <div class="sec a">NBFCs (Non-Banking Financial Companies)</div>
+        <div class="f">NBFCs can be classified as: AFC (Asset Finance Company), IC (Investment Company), LC (Loan Company) — Foreign Trade Company (FTC) is NOT a classification of NBFCs</div>
+        <div class="f"><strong>Shah Committee (1992)</strong> — recommended the NBFC regulatory framework</div>
+        <div class="f">NBFCs are regulated by the RBI Act 1934 and the Banking Regulation Act 1949</div>
+        <div class="f">Commercial banks serve as HELP TO CONSUMERS; NBFC services include HIRE PURCHASE; Non-depository institutions offer MUTUAL FUNDS; Depository institutions offer MUTUAL SAVING BANK services</div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <div class="unit-sep">Unit 7.7–7.10 — Financial Inclusion, Digital Banking, Insurance</div>
+  <div class="cg">
+
+    <div class="cc green" onclick="flip(this)">
+      <div class="cc-hd">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="cc-ic">📱</div>
+          <div><div class="cc-ti">Digital Banking and Payment Systems</div><div class="cc-su">UPI, RTGS, NEFT, SWIFT, RuPay, e-banking concepts</div></div>
+        </div>
+        <div class="cc-arr">⌄</div>
+      </div>
+      <div class="cc-body"><div class="cc-inner">
+        <div class="f">E-banking is also referred to as Web-based Banking, Branchless Banking, Virtual Banking, and Internet Banking — all are synonyms</div>
+        <div class="f">E-banking is essentially regulated by the <strong>Information Technology Act, 2000</strong>; under this Act, digital signature replaces personal signature</div>
+        <div class="f"><strong>SWIFT</strong> — Society for Worldwide Interbank Financial Telecommunications; used globally for international money transfers</div>
+        <div class="f"><strong>RTGS (Real Time Gross Settlement)</strong> — transfers money on a real-time and gross basis; minimum transaction limit is <strong>₹2,00,000</strong>; no upper limit</div>
+        <div class="f"><strong>NEFT (National Electronic Funds Transfer)</strong> — used for transferring funds electronically between bank accounts within India</div>
+        <div class="f"><strong>DD (Demand Draft)</strong> — a physical payment instrument; NOT used for international money transfers</div>
+        <div class="f"><strong>RuPay</strong> — digital payment system developed and managed by the <strong>National Payments Corporation of India (NPCI)</strong></div>
+        <div class="f"><strong>Skimming</strong> — a fraudulent activity where criminals use a small device to steal credit or debit card information during transactions; devices can be placed on ATMs or point-of-sale terminals</div>
+        <div class="f"><strong>Star Topology</strong> in banking networks — each node (device) is connected to a central node (hub or switch) by a separate communication medium</div>
+        <div class="f">Withdrawal of cash from anywhere in India is NOT a feature of Internet Banking — cash withdrawals are done through ATMs or bank branches, not directly through internet banking</div>
+        <div class="f">IMPS (Immediate Payment Service) objectives: enable mobile banking, build full-range mobile services, simplify payments using beneficiary's mobile number, sub-serve RBI's digital payment goals</div>
+        <div class="f"><strong>UPI (Unified Payments Interface)</strong> allows money used for trading to be transferred directly to clearing corporations; it is a real-time payment system</div>
+        <div class="tags"><span class="tag hot">🔥 Freq. asked</span><span class="tag ar">Assertion-Reason</span></div>
+      </div></div>
+    </div>
+
+    <div class="cc amber" onclick="flip(this)">
+      <div class="cc-hd">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="cc-ic">🛡️</div>
+          <div><div class="cc-ti">Insurance — Types, Principles and IRDA</div><div class="cc-su">History, principles, regulation, and types of insurance</div></div>
+        </div>
+        <div class="cc-arr">⌄</div>
+      </div>
+      <div class="cc-body"><div class="cc-inner">
+        <div class="sec t">History of Insurance in India</div>
+        <div class="f">Insurance in India was first started by <strong>Europeans</strong> — the Oriental Life Insurance Company was established in Calcutta in <strong>1818</strong> by Europeans</div>
+        <div class="f">Initially, insurance companies discriminated between Indian and European clients — European clients were charged lower premiums</div>
+        <div class="f">Bombay Mutual Life Assurance Society (1870) — first Indian life insurance company, covered Indian lives at normal rates</div>
+        <div class="f">The Indian Mercantile General Assurance was later renamed as <strong>Bombay Life</strong> (Swadeshi Life)</div>
+        <div class="f">Prior to 1912, India had no legislation to regulate the insurance business</div>
+        <div class="f"><strong>Malhotra Committee (1993)</strong> — recommended a comprehensive framework of reform in the insurance sector including opening to private players</div>
+        <div class="f">IRDA Act 1999 is the predecessor to Insurance Act 1938 — IRDA was established to regulate and promote the insurance industry and protect policyholders' interests</div>
+        <div class="sec t">Principles of Insurance</div>
+        <div class="f"><strong>Principle of Subrogation</strong> — after settling a claim, the insurer stands in the insured's place and has the right to recover from an alternative source responsible for the loss</div>
+        <div class="f"><strong>Principle of Insurable Interest</strong> — the insured must have a financial interest in the subject matter; they must stand to lose financially if the insured event occurs</div>
+        <div class="f"><strong>Principle of Causa Proxima</strong> — the nearest or proximate cause of loss determines the claim; not a remote cause</div>
+        <div class="f"><strong>Principle of Contribution</strong> — when a person has multiple insurance policies covering the same risk, all insurers share the compensation proportionately</div>
+        <div class="sec t">IRDA Requirements</div>
+        <div class="f">Minimum paid-up equity capital for life insurance or general insurance business: <strong>₹100 crore</strong></div>
+        <div class="f">Minimum paid-up capital for reinsurance business: <strong>₹200 crore</strong> (NOT ₹300 crore)</div>
+        <div class="f">Insurance companies must invest NOT LESS than 15% of their funds in infrastructure and social sectors</div>
+        <div class="tags"><span class="tag hot">🔥 Freq. asked</span><span class="tag mt">Match-list</span></div>
+      </div></div>
+    </div>
+
+    <div class="cc pink" onclick="flip(this)">
+      <div class="cc-hd">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div class="cc-ic">👥</div>
+          <div><div class="cc-ti">Financial Inclusion Schemes</div><div class="cc-su">PMJDY, Mudra, Stand Up India, PMVVY — years and objectives</div></div>
+        </div>
+        <div class="cc-arr">⌄</div>
+      </div>
+      <div class="cc-body"><div class="cc-inner">
+        <div class="f"><strong>PM Jan Dhan Yojana (PMJDY) — 2014</strong> — Launched to promote financial inclusion by providing universal access to banking facilities; emphasis on opening bank accounts for the unbanked population</div>
+        <div class="f"><strong>PM Mudra Yojana — 2015</strong> — Launched to provide financial support to micro, small, and medium enterprises (MSMEs) for income-generating activities</div>
+        <div class="f"><strong>Stand Up India — 2016</strong> — Provides loans to women and SC/ST entrepreneurs to set up greenfield enterprises</div>
+        <div class="f"><strong>Pradhan Mantri Vaya Vandana Yojana (PMVVY) — 2017</strong> — Pension scheme for senior citizens aged 60 years and above</div>
+        <div class="f"><strong>Financial Inclusion</strong> — The process of ensuring access to appropriate financial products and services needed by all sections of society, especially vulnerable and low-income groups, at an affordable cost in a fair and transparent manner</div>
+        <div class="f">Universal access to financial services = a factor DISPOSED TO PROMOTE financial inclusion</div>
+        <div class="f">High transaction costs and poor quality of services are barriers to financial inclusion</div>
+      </div></div>
+    </div>
+
+  </div>
+
+</div><!-- end concepts -->
+
+<!-- ══ QUIZ ══ -->
+<div id="p-quiz" class="pane">
+  <div class="qbar">
+    <div class="chips" id="chips">
+      <button class="chip on" onclick="filt('all',this)">All Topics</button>
+      <button class="chip" onclick="filt('rbi',this)">RBI</button>
+      <button class="chip" onclick="filt('types',this)">Types of Banks</button>
+      <button class="chip" onclick="filt('markets',this)">Financial Markets</button>
+      <button class="chip" onclick="filt('dfi',this)">DFIs &amp; Institutions</button>
+      <button class="chip" onclick="filt('digital',this)">Digital Banking</button>
+      <button class="chip" onclick="filt('insurance',this)">Insurance</button>
+      <button class="chip" onclick="filt('reforms',this)">Reforms</button>
+    </div>
+    <div class="qmeta">
+      <div class="sc"><strong id="sv">0</strong> / <span id="tv">0</span> correct</div>
+      <button class="rst" onclick="reset()">↺ Reset</button>
+    </div>
+  </div>
+  <div class="prog"><div class="prog-f" id="pf"></div></div>
+  <div id="qbox"></div>
+</div>
+
+</div><!-- wrap -->
+
+<script>
+const Q=[
+/* ═══ RBI ═══ */
+{t:'rbi',y:'DEC 2014',q:'As per the RBI Act, 1934, the following functions are described as the functions of a Central Bank. Identify the correct combination.',o:['(i) Banking (ii) Advisory (iii) Supervisory (iv) Promotional','(i) Banking (iii) Supervisory (iv) Promotional only — not Advisory','(ii) Advisory (iii) Supervisory (iv) Promotional only','Only (i) Banking and (iii) Supervisory'],a:1,e:'The RBI Act 1934 describes three functions: Banking, Supervisory, and Promotional. Advisory functions are NOT listed as formal Central Bank functions. So option (a) including Advisory is incorrect.'},
+{t:'rbi',y:'DEC 2014',q:'What is the SLR ratio of a bank?',o:['Ratio of total deposits against total investments','Amount deposited by the bank with the Central Bank in the form of cash, gold and securities','Amount that commercial banks are required to maintain before providing credit to customers','Amount that commercial banks deposit with the foreign banks'],a:2,e:'SLR (Statutory Liquidity Ratio) is the minimum percentage of net demand and time liabilities that commercial banks must maintain in the form of liquid assets such as gold, Treasury bills, and government-approved securities before providing credit to customers.'},
+{t:'rbi',y:'DEC 2015',q:'When RBI grants loan to commercial banks and charges interest on it, it is called:',o:['Rapo rate','Reverse Rapo rate','Sweep stack rate, basic rate','Bank rate'],a:3,e:'The Bank Rate is the interest rate the RBI charges when it lends money to commercial banks. By raising the bank rate, the RBI discourages borrowing and reduces credit creation in the economy.'},
+{t:'rbi',y:'DEC 2015',q:'Which among the following is not a subsidiary of the Reserve Bank of India?',o:['Deposit Insurance and Credit Guarantee Corporation of India','Bharatiya Reserve Bank Note Mudran Private Limited','Both (A) and (B)','Neither (A) nor (B)'],a:3,e:'Both DICGC (Deposit Insurance and Credit Guarantee Corporation of India) and BRBNMPL (Bharatiya Reserve Bank Note Mudran Private Limited) are subsidiaries of the RBI. Therefore, neither (A) nor (B) is correct as "not a subsidiary." The answer is (d) Neither (A) nor (B).'},
+{t:'rbi',y:'DEC 2015',q:'Select the techniques of monetary control adopted by RBI from the following: (A) Cash Reserve Ratio (B) Statutory Liquidity Ratio (C) Bank Rate (D) Currency Rate',o:['(A), (B), (C), (D)','(B), (C), (D)','(A), (C), (D)','(A), (B), (C)'],a:3,e:'The techniques of monetary control adopted by RBI are CRR (A), SLR (B), and Bank Rate (C). Currency Rate (D) is not a monetary control technique used by the RBI. So the correct code is (d) (A), (B), (C).'},
+{t:'rbi',y:'JULY 2016',q:'Which combination of the following methods indicates quantitative methods of control of credit creation practised by the Reserve Bank of India?',o:['(A) Bank Rate (B) Open Market Operations (C) Variable Reserve Ratios','(A) Bank Rate (B) Open Market Operations (D) Credit Rationing','(B) Open Market Operations (C) Variable Reserve Ratios (D) Credit Rationing','(A) Bank Rate (C) Variable Reserve Ratios (D) Credit Rationing'],a:0,e:'Quantitative methods include Bank Rate, Open Market Operations (OMO), and Variable Reserve Ratios (CRR and SLR). Credit Rationing is a qualitative method. So (A), (B), and (C) are correct.'},
+{t:'rbi',y:'AUG 2016',q:'Read the following statements and choose the correct code. Statement-1: A rise in SLR directly reduces credit creating capacity of Banks. Statement-2: Changes in SLR, like CRR, produce direct and immediate effect on the supply of money and credit.',o:['Both the Statements are correct','Statement-1 is correct while Statement-2 is false','Statement-2 is correct while Statement-1 is false','Both the Statements are false'],a:1,e:'Statement-1 is correct — a rise in SLR requires banks to hold more liquid assets, reducing their capacity to create credit. Statement-2 is incorrect — changes in SLR, unlike CRR, do NOT produce a direct and immediate effect on money supply.'},
+{t:'rbi',y:'AUG 2016',q:'Which of the following methods are qualitative methods of control of credit creation practised by the Reserve Bank of India?',o:['(A) Open Market Operations (B) Variable Reserve Ratios','(C) Credit Rationing (D) Margin Requirements','(B) Variable Reserve Ratios (C) Credit Rationing','(D) Margin Requirements and (A) Open Market Operations'],a:1,e:'Qualitative methods of credit control are those that control the direction and quality of credit rather than its quantity. Credit Rationing (C) and Margin Requirements (D) are qualitative methods. Open Market Operations and Variable Reserve Ratios are quantitative methods.'},
+{t:'rbi',y:'DEC 2018',q:'When RBI reduces CRR, it results into:',o:['Decrease in lendable resources','Decrease in deposits','Increase in deposits','Increase in lendable resources'],a:3,e:'When RBI reduces CRR, banks are required to hold a smaller proportion of their deposits as reserves with RBI. This increases the funds available for lending, thus increasing lendable resources.'},
+{t:'rbi',y:'DEC 2018',q:'Banking Ombudsman Scheme was introduced by RBI with effect from:',o:['2001','1998','1995','2005'],a:2,e:'The Banking Ombudsman Scheme was introduced by the Reserve Bank of India in 1995. This scheme provides a platform for bank customers to resolve complaints against certain services provided by banks in a cost-free and quick manner.'},
+{t:'rbi',y:'DEC 2018',q:'Which one of the following is not the function of the Reserve Bank of India?',o:['Controller of credit','Accepting deposits and advancing net loans to public','Custodian of Cash Reserves of Commercial Banks','Issue of Bank notes'],a:1,e:'Accepting deposits and advancing loans to the public is the function of commercial banks, NOT the RBI. The RBI\'s primary roles include being controller of credit, custodian of cash reserves, issuing banknotes, and managing monetary policy.'},
+{t:'rbi',y:'JUNE 2019',q:'Assertion (A): Reserve Bank India is an important regulatory and administrative authority that executes FEMA provisions. Reason (R): Being monetary authority and custodian of foreign exchange, Reserve Bank of India enjoys requisite expertise of FEMA administration.',o:['Both (A) and (R) are correct and (R) is the right explanation of (A)','Both (A) and (R) are correct but (R) is not the right explanation','Both (A) and (R) are incorrect','(A) is correct and (R) is not correct'],a:0,e:'Both statements are correct. RBI as the monetary authority and custodian of foreign exchange reserves indeed possesses the necessary expertise to administer FEMA provisions. Reason (R) correctly explains Assertion (A).'},
+{t:'rbi',y:'DEC 2019',q:'National Housing Bank was established in 1987 as a wholly owned subsidiary of which of the following?',o:['State Bank of India','Life Insurance Corporation of India','Reserve Bank of India','Industrial Finance Corporation of India'],a:2,e:'The National Housing Bank (NHB) was set up in 1987 by the Reserve Bank of India (RBI) as its wholly owned subsidiary. Its primary mandate is to promote housing finance institutions and provide financial and other support to such institutions.'},
+{t:'rbi',y:'DEC 2019',q:'Which among the following is NOT a correct statement?',o:['The Reserve Bank of India worked as Central Bank of Burma till April 1947','The Reserve Bank of India worked as Central Bank of Pakistan till June 1948','The Reserve Bank of India worked as Central Bank of Bangladesh from January 1972 to December 1975','The Reserve Bank of India commenced its operations on April 1, 1935'],a:2,e:'The statement that RBI worked as Central Bank of Bangladesh from January 1972 to December 1975 is INCORRECT. The Central Bank of Bangladesh was established on December 16, 1971 when Bangladesh became independent. The RBI never served as the central bank of Bangladesh.'},
+{t:'rbi',y:'OCT 2020',q:'Reverse Repo Rate is a tool used by the Reserve Bank of India primarily to:',o:['Inject liquidity','Absorb liquidity','Protect bank credit','Build reserve'],a:1,e:'The Reverse Repo Rate is the rate at which RBI borrows funds from commercial banks. By using this tool, RBI absorbs excess liquidity from the banking system, reducing money supply. This helps control inflation and maintain economic stability.'},
+{t:'rbi',y:'NOV 2021',q:'Which of the following are limitations in the creation of credit of commercial banks? (A) Cash possessed by banks (B) Supply of collateral security (C) Monetary policy of central bank (E) Deposits linked with special benefits',o:['(A), (C) and (E) only','(A), (D) and (E) only','(C) and (D) only','(D) and (E) only'],a:0,e:'Limitations include: (A) the amount of cash that commercial banks possess, (C) monetary policy of the central bank (via CRR/SLR), and (B) supply of collateral security. Allied deposit schemes and deposits linked with special benefits are generally NOT considered primary limitations in credit creation.'},
+{t:'rbi',y:'NOV 2021',q:'Which of the following is INCORRECT about ways the RBI can affect the structure of interest rates?',o:['(A) By changing the treasury bill rate and (D) Fixing the maximum interest on time deposits','(A), (C), (D) and E only','(B) Blending of leading and trading activities and (E) Ineffective tapping of savings','(D) and (E) only'],a:2,e:'Blending of leading and trading activities (B) and Ineffective tapping and mobilization of savings (E) are NOT methods the RBI uses to affect interest rates. The RBI affects interest rates by changing the treasury bill rate, changing the Bank rate, and fixing maximum interest rates on time deposits.'},
+{t:'rbi',y:'SEP 2022',q:'Which one of the following is an example of Secondary Reserves?',o:['Cash in hand and balances with other banks in current account','Balances with RBI for CRR','Investment in Commercial Paper','Investment in Government Securities for SLR'],a:2,e:'Secondary reserves are liquid assets that can be quickly converted to cash. Investment in Commercial Paper is considered secondary reserve as commercial paper is a short-term unsecured promissory note issued by companies, often used by banks as a liquid asset.'},
+{t:'rbi',y:'JUNE 2023',q:'Why do Central banks intervene to affect exchange rates? Choose the most appropriate answer.',o:['(A), (B) and (C) only — influence domestic production, trade flows, domestic interest rates','(C), (D) and (E) only — influence domestic interest rates, inject liquidity, smoothen fluctuations','(B), (C) and (D) only','(A), (B) and (E) only — influence domestic production, trade flows, smoothen fluctuations'],a:3,e:'Central banks intervene to affect exchange rates primarily to (A) influence domestic production, (B) influence trade flows, and (E) smoothen fluctuations in exchange rates. Influencing domestic interest rates and injecting liquidity are secondary motivations for exchange rate intervention.'},
+{t:'rbi',y:'JUNE 2023',q:'Which are the RBI notified domestic accredited credit rating agencies?',o:['Brickwork Ratings and Acuite Ratings only','Brickwork Ratings, Acuite Ratings and CRISIL Ratings (C and D only)','CRISIL Ratings and Standard and Poor\'s only','CRISIL Ratings and Moody\'s only'],a:1,e:'The RBI has notified several domestic accredited credit rating agencies including Brickwork Ratings, Acuite Ratings, and CRISIL Ratings. Standard and Poor\'s and Moody\'s are international agencies and are NOT part of this RBI notification.'},
+{t:'rbi',y:'DEC 2023',q:'Which one of the following is a fully owned subsidiary of the R.B.I?',o:['Indian Institute of Bank Management (IIBM)','National Institute of Bank Management (NIBM)','Indian Institute of Banking and Finance (IIBF)','Indian Financial Technology and Allied Services (IFTAS)'],a:3,e:'Indian Financial Technology and Allied Services (IFTAS) is a fully owned subsidiary of the Reserve Bank of India (RBI). IFTAS provides technology-related services and support to the banking sector. IIBM, NIBM, and IIBF are NOT subsidiaries of the RBI.'},
+{t:'rbi',y:'JAN 2025',q:'Match the LIST-I (Concept) with LIST-II (Meaning): A. Exchange Rate — I. price of one unit of foreign currency in terms of home currency. B. Forward market — II. making risk less profits by exploiting price differences. C. Arbitrage — III. transactions entered for settlement on a future date. D. Direct Quotation — IV. price of one unit of a currency in terms of units of another currency.',o:['A-IV, B-III, C-II, D-I','A-III, B-IV, C-II, D-I','A-I, B-III, C-II, D-IV (Exchange Rate=I, Forward=III, Arbitrage=II, Direct Quotation=IV)','A-I, B-III, C-II, D-IV — Exchange Rate is I, Forward Market is III'],a:2,e:'Exchange Rate (A) = I (price of one unit of foreign currency in terms of home currency). Forward Market (B) = III (transactions entered for settlement on a future date). Arbitrage (C) = II (making riskless profits by exploiting price differences). Direct Quotation (D) = IV (price of one unit of a currency in terms of units of another currency).'},
+{t:'rbi',y:'JAN 2025',q:'Arrange the following committees as per their year of formation in ascending order: A. Narsimham Committee-I, B. Padmanabhan Committee, C. Verma Committee, D. Saraf Committee, E. Rashid Jilani Committee',o:['A, B, C, D, E','A, E, D, B, C (1991, 1995, 1997, 1999, 2001)','A, E, B, D, C','A, D, B, E, C'],a:1,e:'Narsimham Committee-I (1991) → Rashid Jilani Committee (1995) → Saraf Committee (1997) → Padmanabhan Committee (1999) → Verma Committee (2001). So the correct ascending order is: A, E, D, B, C.'},
+{t:'rbi',y:'JAN 2026',q:'Which of the following are the techniques of Monetary Control adopted by RBI? A. Loans and Advances to the Industries, B. Cash Reserve Ratio, C. Open Market Operations, D. Statutory Liquidity Ratio, E. Repo Rates',o:['A, B, C, D Only','A, B, D, E Only','B, C, D, E Only','A, C, D, E Only'],a:2,e:'Techniques of Monetary Control adopted by RBI are: CRR (B), Open Market Operations (C), SLR (D), and Repo Rates (E). Loans and Advances to Industries (A) is NOT typically considered a monetary control technique by RBI. So the correct answer is (c) B, C, D, E Only.'},
+{t:'rbi',y:'JAN 2026',q:'Which one of the following is the developmental role of RBI?',o:['Formulates, implements and monitors the monetary policy','Prescribes broad parameters of banking operations','Issues, exchanges and destroys currency notes','Performs a wide range of promotional functions to support national objectives'],a:3,e:'The developmental role of the RBI primarily focuses on supporting national economic objectives by performing promotional functions — this includes promoting financial inclusion, supporting development of financial markets, and guiding institutions involved in economic development.'},
+
+/* ═══ TYPES OF BANKS ═══ */
+{t:'types',y:'DEC 2014',q:'Under the Cooperative Bank structure, the apex institution is:',o:['National Cooperative Bank','State Cooperative Bank','District Cooperative Bank','IDBI Bank'],a:1,e:'The cooperative credit structure in India is a three-tier system. State Cooperative Banks serve as the apex institutions at the top, providing loans and credit facilities to District Cooperative Banks below them, which in turn serve Primary Agricultural Credit Societies.'},
+{t:'types',y:'JUNE 2015',q:'Interest earned by a depositor against a deposit with a commercial bank for custodial service is:',o:['Fund based income','Fee based income','A combination of fund and fee based gain','A commitment based gain'],a:0,e:'Fund based income refers to earnings generated from the bank\'s primary activities — interest on deposits, loans, and investments. Interest earned by a depositor is directly related to the funds deposited and is classified as fund based income.'},
+{t:'types',y:'AUG 2016',q:'Match the items of List-I with List-II: Foreign Bank=Catholic Syrian Bank, Public Sector=Sonali Bank, Private Sector=IDBI Bank Bank, Regional Rural=Pallavan Grama Bank',o:['A-i, B-iii, C-iv, D-iv','A-ii, B-iii, C-i, D-iv','A-I, B-iv, C-iii, D-ii','A-ii, B-ii, C-iii, D-iv'],a:1,e:'Foreign Bank (A) = Sonali Bank (ii — a Bangladeshi bank operating in India); Public Sector Bank (B) = IDBI Bank Bank (iii); Private Sector Bank (C) = Catholic Syrian Bank (i); Regional Rural Bank (D) = Pallavan Grama Bank (iv). Therefore option (b) is correct.'},
+{t:'types',y:'JAN 2017',q:'Match the items of Column-I (Banking) with Column-II: A. Relationship Banking — i. Dealing in hundis and acceptance of deposits, B. Merchant Banking — ii. Widening the entrepreneurial base, C. Indigenous Banking — iii. Engaged in the business of Issue Management, D. Development Banking — iv. Creating, maintaining and enhancing strong relationships with customers',o:['(A)-iv, (B)-ii, (C)-i, (D)-iii','(A)-ii, (B)-iv, (C)-iii, (D)-i','(A)-iv, (B)-iii, (C)-i, (D)-ii','(A)-ii, (B)-i, (C)-iv, (D)-iii'],a:0,e:'Relationship Banking (A) = iv (Creating, maintaining, and enhancing strong relationships); Merchant Banking (B) = ii (Widening entrepreneurial base and industrial growth); Indigenous Banking (C) = i (Dealing in hundis and acceptance of deposits); Development Banking (D) = iii (Engaged in business of capital issue management).'},
+{t:'types',y:'SEP 2022',q:'Pricing of housing loan by a commercial bank may follow the following steps in a logical sequence. Choose the correct answer.',o:['(C) Application of MCLR, (B) Specification of spread, (A) Competitive price determination, (D) Conduct of Credit Assessment, (E) Quoting to prospective borrower','(A), (B), (D), (C), (E)','(B), (A), (D), (E), (C)','(D) Conduct of Credit Assessment → (C) Application of MCLR → (B) Specification of spread → (A) Competitive price determination → (E) Quoting to prospective borrower'],a:3,e:'The correct logical sequence for pricing a housing loan is: (1) Conduct Credit Assessment to assess borrower creditworthiness, (2) Apply MCLR as the base rate, (3) Specify the spread over MCLR for risk and profit, (4) Competitive price determination to ensure final pricing is competitive, (5) Quote the price to the prospective borrower.'},
+{t:'types',y:'JUNE 2023',q:'The banks wherein a majority of depositors are non-residents are called:',o:['Cross Payment Banks','Currency Banks','Foreign Banks','Offshore Banks'],a:3,e:'Offshore banks are financial institutions located outside the depositor\'s home country, primarily serving non-residents. They are typically set up in jurisdictions with favorable banking regulations, low taxation, and increased privacy protections. They are attractive to international clients seeking to manage assets globally.'},
+{t:'types',y:'DEC 2023',q:'In which one of the following ratios, the share capital of RRBs is prescribed for the Central Government, State Government and Sponsoring bank?',o:['50:30:20','50:35:15','60:20:20','50:15:35'],a:3,e:'The ownership structure of Regional Rural Banks (RRBs) is: 50% Central Government + 15% State Government + 35% Sponsoring Bank. This structure was designed to ensure centralized control while maintaining regional involvement and operational support from a commercial bank.'},
+{t:'types',y:'SEP 2024',q:'Arrange the following banks in an increasing order of their year of formation: A. State Bank of India, B. Imperial Bank of India, C. Reserve Bank of India, D. Regional Rural Banks, E. Small Finance Bank',o:['E, D, C, B, A','E, D, A, B, C','B, C, A, D, E (1806, 1935, 1955, 1975, 2015)','C, B, A, D, E'],a:2,e:'Imperial Bank of India (B) — 1806 (as Bank of Calcutta) → Reserve Bank of India (C) — 1935 → State Bank of India (A) — 1955 (when Imperial Bank was nationalized and renamed) → Regional Rural Banks (D) — 1975 (RRB Act 1976) → Small Finance Banks (E) — introduced in 2015.'},
+{t:'types',y:'JUNE 2025',q:'Arrange the following Institutions in ascending order of their year of establishment: A. SEBI, B. Reserve Bank of India, C. State Bank of India, D. SIDBI, E. NABARD',o:['C, B, E, A, D','B, C, E, A, D (RBI=1935, SBI=1955, NABARD=1982, SEBI=1992, SIDBI=1990)','B, C, A, E, D','E, B, C, D, A'],a:1,e:'RBI (B) — 1935 → SBI (C) — 1955 → NABARD (E) — 1982 → SIDBI (D) — 1990 → SEBI (A) — 1992. The correct ascending order is: B, C, E, D, A.'},
+{t:'types',y:'JUNE 2025',q:'The State Bank of India came into existence in the year:',o:['1947','1950','1955','1969'],a:2,e:'The State Bank of India came into existence in 1955. It was established after the Government of India took over the Imperial Bank of India (founded in 1806 as Bank of Calcutta) and renamed it the State Bank of India.'},
+
+/* ═══ FINANCIAL MARKETS ═══ */
+{t:'markets',y:'DEC 2014',q:'What is Call Money?',o:['Money borrowed or lent for a day or overnight','Money borrowed for more than one day but up to 3 days','Money borrowed for more than one day but up to 7 days','Money borrowed for more than one day but up to 14 days'],a:0,e:'Call money refers to interbank lending where one bank offers loans and advances to another bank for a single day or overnight. The lending bank earns interest calculated based on the call money rate. This is an instrument of the money market.'},
+{t:'markets',y:'DEC 2014',q:'Secondary market intermediaries for corporate securities in India are: I. Investors, II. Jobbers, III. Brokers and sub-brokers, IV. Portfolio consultants',o:['I, II and III only','II, III and IV only','II and III only','III and IV only'],a:1,e:'Secondary market intermediaries for corporate securities in India are Jobbers (II), Brokers and sub-brokers (III), and Portfolio consultants (IV). Investors are participants, not intermediaries in the secondary market.'},
+{t:'markets',y:'DEC 2014',q:'Assertion (A): Investors in the capital market seem to be inclined for fixed income securities. Reason (R): Debt instruments now have an active secondary market.',o:['(A) and (R) both correct and (R) is the correct explanation of (A)','(A) and (R) both correct but (R) is not the correct explanation','(A) is correct but (R) is incorrect','(A) is not correct but (R) is correct'],a:3,e:'Statement (A) is INCORRECT — investors in capital markets do not necessarily favour fixed income securities; a significant portion seeks capital appreciation. Statement (R) is accurate as debt instruments now have an active secondary market. Hence (d) — (A) is not correct but (R) is correct.'},
+{t:'markets',y:'JUNE 2015',q:'The world\'s first electronic stock market is:',o:['KOSPI','Nikkei','NASDAQ','Dow Jones'],a:2,e:'NASDAQ (National Association of Securities Dealers Automated Quotations) was the world\'s first electronic stock market. It was established in 1971 by the National Association of Securities Dealers (NASD) to provide investors with a more efficient and transparent way to trade securities.'},
+{t:'markets',y:'JUNE 2015',q:'In order to control inflation and ensure stability in money market:',o:['The RBI works under the direction of the ministry of finance','The RBI acts independently and can refuse the government directive','The RBI acts under the board of directors','The RBI\'s board of governors shall abide by the government directive'],a:1,e:'As per the Reserve Bank of India Act 1934, the central bank has the authority to manage and control the money market using various monetary policy tools. The RBI acts independently and has the authority to refuse government directives to maintain stability in the money market.'},
+{t:'markets',y:'JUNE 2015',q:'NIFTY and SENSEX in India are calculated on the basis of:',o:['Market capitalisation','Paid up capital','Free-float market capitalisation','Authorized share capital'],a:2,e:'NIFTY and SENSEX are calculated based on free-float market capitalisation. This considers only the shares available for trading in the market, excluding promoter holdings, government holdings, and other locked-in shares. This gives a more accurate reflection of the available market.'},
+{t:'markets',y:'JUNE 2019',q:'When was paper currency first started in India?',o:['1542','1611','1705','1801'],a:2,e:'Paper currency was first introduced in India in 1705 by the British East India Company to facilitate trade and payments. This initial issuance laid the foundation for the development of modern banking and financial systems in colonial India.'},
+{t:'markets',y:'OCT 2020',q:'In India, creditworthiness score ranges between:',o:['300 to 600','300 to 900','500 to 1000','900 to 1600'],a:1,e:'In India, creditworthiness scores (also known as credit scores or CIBIL scores) typically range between 300 and 900. These scores are used by lenders to assess the credit risk of individuals applying for loans or credit cards. A higher score indicates better creditworthiness.'},
+{t:'markets',y:'NOV 2021',q:'Which committee is related to investor protection?',o:['Bhagwati Committee','N. K. Mitra Committee','J. R. Verma Committee','L. C. Gupta Committee'],a:1,e:'The N. K. Mitra Committee was formed to address investor protection issues in India. It submitted its report in April 2001, focusing on recommendations to safeguard investors from fraud, misrepresentation, and to enhance investor education initiatives.'},
+{t:'markets',y:'SEP 2022',q:'Which one of the following is false respect to interest rate structure in the Indian money market?',o:['A very tight liquidity position will increase the call rates while excess liquidity will give fairly low and stab rates','If the liquidity crunch of the banks passed on to the system it may lead to high volatility in call rates','Call rates under normal liquid conditions are the cap rate for the term money market','In a volatile call market situation lending at high call rates can yield high return'],a:2,e:'Statement (C) is FALSE. Call rates are not necessarily the cap rate for the term money market; they are typically overnight rates and can vary independently of term money market rates, which depend on different factors and may have different caps.'},
+{t:'markets',y:'JUNE 2023',q:'In the context of banking sector, spread is defined as a function of the following:',o:['(C) Rate Sensitive Assets and (E) Leverage Ratio','(A) Forex and (C) Rate Sensitive Assets','(B) Net Interest Income and (D) Asset Ratio','(B) Net Interest Income only'],a:2,e:'In the context of the banking sector, spread is defined as the difference between the interest income generated by banks from lending and the interest paid to depositors. Therefore, it is directly related to Net Interest Income (NII). Rate Sensitivity and Leverage can also influence spread.'},
+{t:'markets',y:'JUNE 2023',q:'Starting from earliest, sequence the steps taken to develop the money market in India: (A) Introduction of Interest Rate Swaps (IRSS), (B) Introduction of Commercial Paper, (C) Introduction of Ways and Means Advances linked to bank rate, (D) Introduction of Liquidity Adjustment Facility, (E) Implementation of Real Time Gross Settlement',o:['(C), (B), (D), (A), (E)','(D), (B), (E), (A), (C)','(D), (A), (B), (E), (C)','(B) → (C) → (A) → (D) → (E) (1990, 1997, 1999, 2000, 2004)'],a:3,e:'Commercial Paper introduced in 1990 (B) → Ways and Means Advances linked to bank rate in 1997 (C) → Interest Rate Swaps in 1999 (A) → Liquidity Adjustment Facility in 2000 (D) → RTGS in 2004 (E). Correct sequence: (B), (C), (A), (D), (E).'},
+{t:'markets',y:'JAN 2025',q:'An unsecured short term promissory note, negotiable and transferable by endorsement and delivery with a fixed maturity period issued at a discount by creditworthy corporates is known as:',o:['Treasury Bill','Commercial Paper','Certificates of Deposit','Repo'],a:1,e:'The instrument described is Commercial Paper (CP). It is unsecured, short-term, issued at a discount, has a fixed maturity (15 days to 1 year in India), and is issued by creditworthy corporates, primary dealers, and all-India financial institutions.'},
+{t:'markets',y:'JUNE 2025',q:'Arrange the following in chronological order of the Milestone achieved by the National Stock Exchange of India: A. Commencement of Trading in Index options, B. Launch of Securities Lending and Borrowing Scheme, C. Commencement of Derivatives Trading in Index Futures, D. Launch of Mutual Fund Service System, E. Launch of S&P CNX Nifty',o:['B, D, E, A, C','A, C, E, B, D','E, C, A, B/D, B/D (1996, 2000, 2001, 2009, 2009)','E, A, C, B, D'],a:2,e:'Launch of S&P CNX Nifty (E) — 1996 → Commencement of Derivatives Trading in Index Futures (C) — 2000 → Commencement of Trading in Index Options (A) — 2001 → Launch of Securities Lending and Borrowing Scheme (B) — 2009 → Launch of Mutual Fund Service System (D) — 2009. Order: E, C, A, B, D.'},
+
+/* ═══ DFIs & INSTITUTIONS ═══ */
+{t:'dfi',y:'DEC 2014',q:'The Regulatory Authority of Regional Rural Banks is:',o:['NABARD','Central Government','State Government','Sponsor Bank'],a:0,e:'NABARD (National Bank for Agriculture and Rural Development) serves as the regulatory authority for all Regional Rural Banks operating in the country. Established in July 1982, it plays a crucial role in supporting agriculture, rural development, and also regulates cooperative banks.'},
+{t:'dfi',y:'JUNE 2015',q:'For the purpose of extending rural banking and agro finance, the NABARD:',o:['Directly lends and monitors the rural borrowers','Refinances the banks extending rural finance','Refinances the rural borrowers obtaining credit from banks','Directly finances the rural borrowers and gets refinance from government'],a:1,e:'NABARD refinances the banks (commercial banks, cooperative banks, RRBs) that extend rural finance. It does not directly lend to rural borrowers. NABARD provides refinancing support to promote agricultural finance and banking in rural areas.'},
+{t:'dfi',y:'DEC 2015',q:'Which among the following is not associated with NABARD?',o:['NIEAF','BIRD','RIDF','SHPI'],a:3,e:'SHPI (Self Help Promoting Institution) is NOT associated with NABARD in the context of the answer key. NIEAF (National Institute of Extension Administration and Finance), BIRD (Bankers\' Institute of Rural Development), and RIDF (Rural Infrastructure Development Fund) are all associated with NABARD.'},
+{t:'dfi',y:'JUNE 2015',q:'Which of the following is not a development banking institution?',o:['IDBI','IFCI','EXIM Bank','ICICI'],a:2,e:'EXIM Bank (Export-Import Bank of India) is primarily focused on facilitating international trade and financing — not traditional development banking activities like IDBI and IFCI. ICICI has also transformed into a commercial bank. So EXIM Bank is NOT categorized as a development banking institution.'},
+{t:'dfi',y:'JULY 2016',q:'Which one of the following development financial institutions in India has started the special refinance scheme for the resettlement and rehabilitation of voluntary retired workers of the National Textile Corporation?',o:['IDBI','SIDBI','ICICI','None of the above'],a:1,e:'SIDBI (Small Industries Development Bank of India) implemented the special refinance scheme for the resettlement and rehabilitation of voluntary retired workers of the National Textile Corporation of India. SIDBI focuses on small industries and took over various functions from IDBI.'},
+{t:'dfi',y:'JAN 2017',q:'Match items of List-I with List-II: IFCI=1948, SIDBI=1990, NABARD=1982, EXIM Bank=1981',o:['A-iii, B-i, C-ii, D-iv','A-iv, B-ii, C-iii, D-i','A-iv, B-iii, C-ii, D-i — IFCI=1948, NABARD=1982, SIDBI=1990, EXIM=1981','A-iii, B-iv, C-ii, D-i'],a:2,e:'IFCI (A) — 1948 (i); SIDBI (B) — 1990 (iv); NABARD (C) — 1982 (ii); EXIM Bank (D) — 1981 (i). The chronological order: IFCI (1948) → NABARD (1982) → EXIM Bank (1981) → SIDBI (1990). Correct: IFCI=iii(1948), NABARD=ii(1982), SIDBI=iv(1990), EXIM=i(1981).'},
+{t:'dfi',y:'JAN 2017',q:'SIDBI was set up as a subsidiary of IDBI to:',o:['Take over the functions of small business financing of IDBI','Take over the venture capital operations of ICICI','Reconstruct and rehabilitate the sick and closed industrial units financed by IDBI','Facilitate, finance and promote India\'s Foreign trade'],a:0,e:'SIDBI (Small Industries Development Bank of India) was set up as a subsidiary of IDBI in 1990 with the primary purpose of taking over the functions of small business financing that were previously handled by IDBI. It aims to facilitate and strengthen credit flow to the MSME sector.'},
+{t:'dfi',y:'JUNE 2018',q:'Which one of the following financial institutions coordinates the functions and operations of all the financial institutions into a single integrated financial structure so that each may contribute to the growth of the economy?',o:['IFCI','UTI','IDBI','SIDBI'],a:2,e:'IDBI (Industrial Development Bank of India) was established with the purpose of coordinating the activities of various financial institutions, ensuring their smooth functioning within a single integrated financial structure, and promoting economic growth.'},
+{t:'dfi',y:'OCT 2020',q:'SIDBI was set up as a subsidiary of IDBI to:',o:['Take over the functions of small business financing of IDBI','Take over the venture capital operations of IDBI','Reconstruct and rehabilitate sick and closed industrial units','Facilitate, finance and promote India\'s foreign trade'],a:0,e:'SIDBI was set up in 1990 as a subsidiary of IDBI with the primary purpose of taking over small business financing functions previously handled by IDBI. It aims to facilitate and strengthen credit flow to the Micro, Small and Medium Enterprises (MSME) sector.'},
+{t:'dfi',y:'OCT 2020',q:'Arrange the following financial institutions in ascending order of their year of establishment: (A) National Housing Bank, (B) Export Import Bank of India, (C) NABARD, (D) Unit Trust of India',o:['(B) (D) (C) (A)','(D) (B) (A) (C)','(D) (B) (C) (A) — UTI=1963, EXIM=1982, NABARD=1982, NHB=1988','(A) (B) (C) (D)'],a:2,e:'Unit Trust of India (D) — 1963/1964 → Export Import Bank (B) — January 1982 → NABARD (C) — July 1982 → National Housing Bank (A) — 1988. Correct ascending order: D, B, C, A.'},
+{t:'dfi',y:'NOV 2021',q:'Mutual fund is: (a) Investment Intermediary (b) Venture capitalist (c) NBFC (d) Non-profit organization',o:['(a) Investment Intermediary','(b) Venture capitalist','(c) NBFC','(d) Non-profit organization'],a:0,e:'A mutual fund is an investment intermediary that collects funds from numerous investors and invests them in a diversified portfolio of securities. It allows individual investors to access professionally managed portfolios. The correct answer is (a) Investment Intermediary.'},
+{t:'dfi',y:'DEC 2023',q:'Arrange the following Financial Institution in the increasing order of their date of establishment: A. NABARD, B. EXIM Bank, C. UTI, D. SIDBI, E. ECGC',o:['A, B, C, D, E','C, B, A, D, E (1964, 1982, 1982, 1990, 1957)','C, E, A, B, D (UTI=1964, ECGC=1957, NABARD=1982, EXIM=1982, SIDBI=1990)','E, C, B, A, D (ECGC=1957, UTI=1964, EXIM=1982, NABARD=1982, SIDBI=1990)'],a:3,e:'ECGC (E) — 1957 → UTI (C) — 1964 → EXIM Bank (B) — January 1982 → NABARD (A) — July 1982 → SIDBI (D) — 1990. Correct ascending order: E, C, B, A, D.'},
+{t:'dfi',y:'SEP 2024',q:'Which of the following subsidiaries are fully owned by the Reserve Bank of India? A. National Housing Bank, B. National Bank for Agriculture and Rural Development, C. The Deposit Insurance and Credit Guarantee Corporation of India, D. Bhartiya Reserve Bank Note Mudran Private Limited, E. Securities Trading Corporation of India',o:['A, C and D Only','A, D and E Only','B, D and E Only','B, C and E Only'],a:0,e:'DICGC (C) and BRBNMPL (D) are fully owned subsidiaries of RBI. NHB (A) was fully owned by RBI until 2019 when it was transferred to the Government. NABARD is NOT an RBI subsidiary — it is a statutory body. Securities Trading Corporation of India is not an RBI subsidiary. Answer: A, C and D.'},
+{t:'dfi',y:'JUNE 2025',q:'Arrange the following Development Financial Institution in chronological order of their establishment (Old to New): A. IFCI, B. IDBI, C. NABARD, D. SIDBI',o:['A, B, C, D (IFCI=1948, IDBI=1964, NABARD=1982, SIDBI=1990)','B, A, C, D','C, D, A, B','D, C, B, A'],a:0,e:'IFCI (A) — 1948 → IDBI (B) — 1964 → NABARD (C) — 1982 → SIDBI (D) — 1990. The correct chronological order (Old to New) is: A, B, C, D.'},
+{t:'dfi',y:'JAN 2026',q:'Which one of the following is NOT a component of the formal (organized) financial system?',o:['Financial Markets','Financial Instruments','Chit-fund Companies','Financial Services'],a:2,e:'Chit-fund Companies are typically part of the informal/unorganized financial segment. They operate mainly on private membership and local trust networks and may not function like mainstream regulated intermediaries. Financial Markets, Financial Instruments, and Financial Services are core components of the formal financial system.'},
+
+/* ═══ DIGITAL BANKING ═══ */
+{t:'digital',y:'JUNE 2015',q:'E-banking business is essentially regulated by the Information Technology Act, 2000, under which personal signature is replaced by:',o:['Encrypted signature','Image signature','Digital signature','Online signature'],a:2,e:'With the enactment of the Information Technology Act 2000, digital signatures have replaced personal signatures for validating and verifying the integrity of documents in banking. Digital signatures ensure authenticity and non-repudiation in electronic transactions.'},
+{t:'digital',y:'DEC 2015',q:'"Skimming" in e-banking refers to:',o:['Identifying fraudsters copying vital information from credit cards','Multiple transactions by one credit card','Conversion of a debit card into credit card','None of the above'],a:0,e:'Skimming is a fraudulent activity where criminals use a small device to steal credit or debit card information during transactions. These devices can be discreetly placed on ATMs or point-of-sale terminals. The stolen data is then used to make unauthorized purchases or create counterfeit cards.'},
+{t:'digital',y:'DEC 2015',q:'To operationalise online, internet, mobile banking, debit card and credit card tools, some of the essential ingredients are:',o:['Compliance with the Information Technology Act 2000','Satellite connection','Selection of a portal and server','All of the above'],a:3,e:'To operationalize online, internet, and mobile banking tools, all three are essential: (a) Compliance with IT Act 2000 for legal compliance, (b) reliable internet/satellite connection for accessibility, and (c) selection of a secure portal and server infrastructure. All of the above (d) is correct.'},
+{t:'digital',y:'JULY 2016',q:'"SWIFT" stands for:',o:['Society for Worldwide Inter-bank Fund Transfer','Society for Worldwide Inter-bank Fast Transmission','Society for Worldwide Inter-bank Financial Telecommunications','None of the above'],a:2,e:'SWIFT stands for Society for Worldwide Interbank Financial Telecommunications. This network is used globally by financial institutions to securely exchange information and instructions for international money transfers.'},
+{t:'digital',y:'NOV 2017',q:'If you need to transfer money to another person through the internet, which of the following methods could you use?',o:['Financial cybermediary','Electronic cheque','Electronic bill presentation and payment','All of the above'],a:3,e:'All three methods can be used to transfer money through the internet: Financial cybermediary (like PayPal), Electronic cheque (an electronic version of a paper check), and Electronic bill presentation and payment services. Hence, "All of the above" is correct.'},
+{t:'digital',y:'DEC 2018',q:'Which one of the following is not the fund-based business of commercial banks?',o:['Overdraft facility','Acceptance of deposits','Issuance of Letters of Credit','RTGS/NEFT transactions'],a:2,e:'Issuance of Letters of Credit is a NON-fund-based activity of commercial banks, as it involves providing a guarantee rather than directly using bank funds. Overdraft facilities and acceptance of deposits are fund-based. RTGS/NEFT are electronic payment systems and are also non-fund-based.'},
+{t:'digital',y:'JUNE 2019',q:'Which one of the following is used for international money transfer?',o:['RTGS','NEFT','SWIFT','DD'],a:2,e:'SWIFT (Society for Worldwide Interbank Financial Telecommunications) is used globally for international money transfers. RTGS and NEFT are domestic Indian systems. DD (Demand Draft) is a physical payment instrument not typically used for international transfers.'},
+{t:'digital',y:'OCT 2020',q:'New reform in Indian banking system include: (A) Digitisation of bank operations (B) Banking consolidation',o:['(A) and (B)','(C) and (D)','(B), (D) and (C)','(A), (C) and (D)'],a:0,e:'Recent reforms in the Indian banking system have focused on Digitisation of bank operations (A) to modernize services and Banking consolidation (B) through mergers to strengthen financial health and efficiency. Borrowing from Government and Agency work are not recent reform initiatives.'},
+{t:'digital',y:'NOV 2021',q:'"Skimming" in e-banking is a method of:',o:['Transferring cash from one account to another','Identifying fraudsters copying vital information from credit cards','Converting Debit Cards into Credit Cards','Excessive charge for online services'],a:1,e:'Skimming in e-banking refers to the unauthorized capturing of credit or debit card information, typically from the magnetic stripe on the card. This stolen information is then used for fraudulent activities such as making unauthorized transactions or creating cloned cards.'},
+{t:'digital',y:'NOV 2021',q:'In Banking Technologies, Star Topology involves:',o:['Devices are connected in a close loop','Devices on the network are connected to a single continuous moon cable','Each node is joined to the central node by a separate medium','Information is passed from one node to another in series'],a:2,e:'In a Star Topology, each device (node) on the network is connected to a central node (such as a hub or switch) by a separate communication medium (such as a cable). The central node acts as a conduit to transmit messages between devices.'},
+{t:'digital',y:'JUNE 2023',q:'Contactless payments infrastructure, as per the passage, will empower fintechs for:',o:['Interoperability with the UPI','Innovation in finance','Integration with the UPI ecosystem','Integration with the full service banks'],a:1,e:'According to the passage on UPI and digital payments, contactless payments infrastructure enables fintech companies to leverage new technologies and innovate in the financial sector. By adopting contactless payments, fintech companies can develop new financial products, enhance user experiences, and drive advancements in payment technologies.'},
+{t:'digital',y:'DEC 2023',q:'Which one of the following digital payment systems is developed and managed by the National Payments Corporation of India?',o:['Paytm','BharatPe','Mastercard','RuPay'],a:3,e:'RuPay is a digital payment system developed and managed by the National Payments Corporation of India (NPCI). It is India\'s domestic card payment network, designed to provide a secure and efficient way for electronic transactions. RuPay aims to enhance financial inclusion by offering affordable and accessible payment solutions.'},
+{t:'digital',y:'JAN 2026',q:'Given below are two statements. Assertion (A): RTGS system is a funds transfer mechanism where transfer of money takes place from one bank to another on a real-time and on a gross basis. Reason (R): There is no minimum ceiling for the RTGS transactions.',o:['Both (A) and (R) are correct and (R) is the correct explanation of (A)','Both (A) and (R) are correct but (R) is NOT the correct explanation of (A)','(A) is correct but (R) is not correct','(A) is not correct but (R) is correct'],a:2,e:'Assertion (A) is CORRECT — RTGS is a funds transfer system where money is transferred from one bank to another in real time and on a gross basis. Reason (R) is INCORRECT — RTGS does have a minimum transaction limit. In India, the minimum amount for RTGS is ₹2,00,000. Therefore, (A) is correct but (R) is not correct.'},
+
+/* ═══ INSURANCE ═══ */
+{t:'insurance',y:'DEC 2019',q:'The insurance business in India was started first by which one of the following?',o:['Americans','Indian merchants','Europeans','Afro-Indians'],a:2,e:'The insurance business in India was first started by Europeans. The first life insurance company, the Oriental Life Insurance Company, was established in Calcutta in 1818 by Europeans. The early insurance industry in India was predominantly managed by British companies.'},
+{t:'insurance',y:'DEC 2019',q:'Which one among the following grew along with the insurance business in India?',o:['Pension Fund','Provident Fund','Gratuity','Arbitrage'],a:1,e:'The Provident Fund system grew along with the insurance business in India. The establishment and expansion of provident funds were part of broader efforts to provide financial security and social welfare for workers, similar to how insurance provides financial protection against various risks.'},
+{t:'insurance',y:'NOV 2021',q:'Arrange the following steps in a logical sequence of the claim settlement procedure in Insurance: (A) Scrutinization, (B) Investigation of an assessment, (C) Claim form, (D) Notice of loss, (E) Settlement and Arbitration',o:['(A), (B), (C), (D), (E)','(C), (A), (D), (B), (E)','(D), (C), (A), (B), (E) — Notice of loss → Claim form → Scrutinization → Investigation → Settlement','(D), (C), (B), (A), (E)'],a:2,e:'The logical sequence for claim settlement in insurance: (D) Notice of loss — insured notifies insurer → (C) Claim form — insured submits claim form → (A) Scrutinization — insurer examines claim form → (B) Investigation/assessment — insurer investigates validity → (E) Settlement and Arbitration — settlement or dispute resolution.'},
+{t:'insurance',y:'SEP 2022',q:'If the subject matter of insurance is the ship, the marine insurance is called:',o:['Cargo insurance','Hull insurance','Freight insurance','Voyage insurance'],a:1,e:'When the subject matter of insurance is the ship itself, the type of marine insurance is called Hull Insurance. Hull insurance specifically covers the physical hull or structure of the ship against various risks. Cargo insurance covers the goods, and freight insurance covers the freight charges.'},
+{t:'insurance',y:'DEC 2023',q:'Which committee had recommended a comprehensive framework of reform in the insurance sector?',o:['Ghosh Committee (1993)','Sodhani Committee (1994)','Malhotra Committee (1993)','Kalia Committee (1994)'],a:2,e:'The Malhotra Committee, formed in 1993, was tasked with examining the structure of the insurance industry and suggesting reforms for its modernization and expansion. It recommended establishing an independent regulatory body and opening up the insurance sector to private players. These reforms aimed to increase efficiency and customer satisfaction.'},
+{t:'insurance',y:'JAN 2025',q:'The right of the insurer to stand in the place of the Insured after the settlement of a claim and it gives the insurer right to recover from an alternative source, the principle involved in this case is called:',o:['Principle of Insurable Interest','Principle of Subrogation','Principle of Causa Proxima','Principle of Contribution'],a:1,e:'The Principle of Subrogation allows the insurer, after paying a claim to the insured, to take the insured\'s place and pursue recovery from a third party responsible for the loss. The insurer "steps into the shoes" of the insured and can claim reimbursement from an alternative source.'},
+
+/* ═══ REFORMS ═══ */
+{t:'reforms',y:'DEC 2015',q:'In 1992, the banking sector reforms were introduced as per:',o:['C. Rangarajan Committee Report','M. Narasimham Committee Report','Suresh Tendulkar Committee Report','Sukhamoy Chakravarty Committee Report'],a:1,e:'In 1992, the Narasimham-II Committee was established to study the position of financial institutions operating in the country. The committee examined various aspects including capital adequacy ratio (CAR), the optimal size of banks, and ways to strengthen them. Therefore, option (b) is correct.'},
+{t:'reforms',y:'JULY 2016',q:'Identify the years in which different phases of Bank Nationalisation took place in India: (A) 1950, (B) 1955, (C) 1969, (D) 1949, (E) 1980',o:['(A), (B), (C), (D)','(B), (C), (E)','(B), (D), (E)','(C), (D), (E)'],a:1,e:'The phases of Bank Nationalisation in India: 1955 (B) — Imperial Bank nationalized and renamed SBI. 1969 (C) — 14 commercial banks nationalized (first phase). 1980 (E) — 6 more banks nationalized (second phase). 1950 and 1949 do NOT match any phase of bank nationalization.'},
+{t:'reforms',y:'JAN 2025',q:'The Narasimha Committee 1991 recommended the reforms with respect to the banking sector. These reforms are also known as:',o:['First generation reforms','Second generation reforms','Financial sector reforms','Third generation reforms'],a:0,e:'The Narasimham Committee of 1991 recommended a series of reforms aimed at liberalizing and improving the efficiency of the banking sector in India. These reforms, introduced in the early 1990s, are known as First Generation Reforms and were part of a broader set of economic liberalization policies.'},
+{t:'reforms',y:'JUNE 2025',q:'Arrange the following Development Financial Institution in chronological order of their establishment: A. IFCI, B. IDBI, C. NABARD, D. SIDBI',o:['A, B, C, D','B, A, C, D','C, D, A, B','D, C, B, A'],a:0,e:'IFCI (A) — 1948 → IDBI (B) — 1964 → NABARD (C) — 1982 → SIDBI (D) — 1990. Correct chronological order (old to new): A, B, C, D.'}
+];
+
+let cur=[...Q],ans={},cor=0;
+
+function filt(t,b){
+  document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  ans={};cor=0;
+  cur=t==='all'?[...Q]:Q.filter(q=>q.t===t);
+  render();
+}
+
+function render(){
+  document.getElementById('tv').textContent=cur.length;
+  upd();
+  const c=document.getElementById('qbox');
+  c.innerHTML=cur.map((q,i)=>{
+    const st=ans[i];
+    const tl=({rbi:'RBI',types:'Types of Banks',markets:'Markets',dfi:'DFIs',digital:'Digital',insurance:'Insurance',reforms:'Reforms'})[q.t]||q.t;
+    return`<div class="qc" id="q${i}">
+      <div class="qt">
+        <span class="qyb">${q.y}</span>
+        <span class="qtb ${q.t}">${tl}</span>
+        <span class="qno">Q${i+1} / ${cur.length}</span>
+      </div>
+      <div class="qtext">${q.q}</div>
+      <div class="opts">
+        ${q.o.map((o,j)=>{
+          let c='';
+          if(st!==undefined){
+            if(j===q.a) c=' reveal';
+            else if(j===st&&st!==q.a) c=' wrong';
+          }
+          if(j===st&&st===q.a) c=' correct';
+          const ic=st!==undefined?(j===q.a?'<span class="oi">✓</span>':(j===st?'<span class="oi">✕</span>':'')):'';
+          return`<button class="ob${c}"${st!==undefined?' disabled':''}onclick="pick(${i},${j})"><span class="ol">${String.fromCharCode(65+j)}</span><span style="flex:1">${o}</span>${ic}</button>`;
+        }).join('')}
+      </div>
+      ${st!==undefined?`<div class="exp"><span class="ei">💡</span><span>${q.e}</span></div>`:''}
+    </div>`;
+  }).join('');
+}
+
+function pick(i,j){
+  if(ans[i]!==undefined)return;
+  ans[i]=j;
+  if(j===cur[i].a)cor++;
+  upd();
+  const q=cur[i];
+  const card=document.getElementById('q'+i);
+  card.querySelectorAll('.ob').forEach((b,bi)=>{
+    b.disabled=true;
+    b.classList.remove('correct','wrong','reveal');
+    if(bi===q.a){b.classList.add(bi===j?'correct':'reveal');if(!b.querySelector('.oi')){const s=document.createElement('span');s.className='oi';s.textContent='✓';b.appendChild(s);}}
+    else if(bi===j&&j!==q.a){b.classList.add('wrong');if(!b.querySelector('.oi')){const s=document.createElement('span');s.className='oi';s.textContent='✕';b.appendChild(s);}}
+  });
+  if(!card.querySelector('.exp')){
+    const d=document.createElement('div');
+    d.className='exp';
+    d.innerHTML=`<span class="ei">💡</span><span>${q.e}</span>`;
+    card.appendChild(d);
+  }
+  card.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function upd(){
+  document.getElementById('sv').textContent=cor;
+  const d=Object.keys(ans).length;
+  document.getElementById('pf').style.width=(cur.length>0?Math.round(d/cur.length*100):0)+'%';
+}
+
+function reset(){ans={};cor=0;render();window.scrollTo({top:0,behavior:'smooth'});}
+
+function go(id,btn){
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('p-'+id).classList.add('on');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function flip(c){c.classList.toggle('open');}
+render();
+</script>
+</body>
+</html>
